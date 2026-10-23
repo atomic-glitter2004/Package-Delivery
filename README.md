@@ -1,7 +1,6 @@
-# Package Delivery Sample Calculation - Optimization code and output 配送路线样本计算 - 优化代码和输出
-**Project & Investigation by Ash** 
+# Package Delivery Sample Calculation - Optimization code and output
 
-**Ash的项目与探索** 
+Random investigation on the NP-hard problem TSP and how it could be implemented on end delivery
 
 <img width="604" alt="Frmula TSP" src="https://github.com/user-attachments/assets/24686ca2-7343-4613-bfcf-bc3608e8ae55" />
 
@@ -9,35 +8,18 @@ $`\text{Minimize: } \sum_{i=1}^{n-1} \left[ C(i, i+1, t) + \text{Delay}(i, i+1) 
 
 
 Package delivery and route optimization that basically uses the fundementaln logic link in the classic NP-Hard problem: travelling salesman problem
-这个包裹递送和路线优化过程基本与经典 NP-Hard 问题中的旅行推销员问题一样
+
 
 >This page's code is how I calculated the optimal route for example
->
->本页的代码是我计算最优路线的示例
 
-## Input code 代码部分
+
+## Input code 
 ```
 import numpy as np
 
 def optimal_delivery_route(points, route, availability=None, start_time=9.0, speed_vihicle=15,
                            house_delivery_time_min=10):
 
- """
- :param these values are just adapted to fit our theroretical circumstance, could be changed and adapted to spesific circumstnace
-    //这些值只是为了适应测试值，可以根据具体情况进行修改和调整
- :param points: the (x,y), which is the corrinates of the location on a axis
-    //points:(x,y)，即位置在“坐标轴”上的坐标
- :param route: the route that is followed
-    //route:路线
- :param availability: for when each household is avaliable, could be none, though, which just means avaliable all day
-    //availability:每位用户的可签收时间，也可以是没有本限制-即全天可用。
- :param start_time: the time the deliverer starts working. this is to take in factor to organize household avaliability in route
-    //start_time:配送员开始工作的时间
- :param speed_vihicle: speed of delivery vehicle in km/h
-    //speed_vihicle:送货交通工具的速度，单位为公里/小时
- :param house_delivery_time_min: fixed delivery time per stop in minutes
-    //house_delivery_time_min：到每个送货点的固定送货时间，以分钟为单位
- """
     if availability is None:
         availability = {}
 
@@ -109,7 +91,7 @@ for stop, t in violations:
 
 ```
 
-## And here is my outputs 输出部分: 
+## And here is my outputs:
 ```
 Output:
 Arrival Times At Position:
